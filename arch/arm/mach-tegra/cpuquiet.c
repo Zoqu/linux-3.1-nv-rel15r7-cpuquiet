@@ -172,7 +172,7 @@ static void tegra_cpuquiet_work_func(struct work_struct *work)
 
 	if (device_busy == 1) {
 		cpuquiet_device_busy();
-	} else if (!device_busy) {
+	} else if (!device_busy && !is_lp_cluster()) {
 		apply_core_config();
 		cpuquiet_device_free();
 	}
